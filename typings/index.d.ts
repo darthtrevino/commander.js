@@ -3,6 +3,8 @@
 
 ///<reference types="node" />
 
+import { EventEmitter } from 'events'
+
 declare namespace commander {
 
   interface CommanderError extends Error {
@@ -25,7 +27,7 @@ declare namespace commander {
   }
   type OptionConstructor = { new (flags: string, description?: string): Option };
 
-  interface Command extends NodeJS.EventEmitter {
+  interface Command extends EventEmitter {
     [key: string]: any; // options as properties
 
     args: string[];
